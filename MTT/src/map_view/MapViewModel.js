@@ -9,7 +9,7 @@ export default class VM extends Observable {
         super()
         this.model = model
         this.filter = undefined
-        this.trackSelection = this.showSuggested
+        this.trackSelection = this.pickRandomTracks
         this.numberSelection = 1
         this.amData
         this.searchResults
@@ -58,7 +58,6 @@ export default class VM extends Observable {
                 data.push(new CountryAmData({ id: country.id, tracks: tracks }))
             }
         })
-
         return data
     }
 

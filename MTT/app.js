@@ -15,4 +15,5 @@ const app = factory.getApp()
 
 ;(async () => {
     await app.model.getAllTracks()
+    console.log(app)
 })()

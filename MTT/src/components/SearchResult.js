@@ -50,7 +50,7 @@ export default class SearchResult {
         }
     }
 
-    static create(value) {
+    create(value) {
         return document.createElement(value)
     }
 }

@@ -30,6 +30,7 @@ class View {
 
     update(data) {
         this.renderMap(data.amData)
+        console.log(data.amData)
         this.renderSearch(data.searchResults)
     }
 

@@ -19,7 +19,9 @@ export default class Observable {
 
     notify(data) {
         if (this.observers.length > 0) {
-            this.observers.forEach((observer) => observer.update(data))
+            this.observers.forEach((observer) => {
+                observer.update(data)
+            })
         }
     }
 }

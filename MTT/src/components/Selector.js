@@ -25,7 +25,7 @@ class Selector {
         this.element.appendChild(this.switch)
     }
 
-    static create(value) {
+    create(value) {
         return document.createElement(value)
     }
 }
