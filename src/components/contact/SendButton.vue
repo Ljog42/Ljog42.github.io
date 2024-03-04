@@ -2,5 +2,5 @@
 
 <template>
   <input type="submit" id="submit" name="submit" value="ENVOYER"
-    class="contact_form-submit rounded-lg bg-gray-200 shadow-gray-400 shadow-sm text-eerieBlack hover:bg-utOrange hover:text-white active:scale-x-95 duration-300 px-1 py-[2px] font-display text-base md:text-lg lg:text-xl font-bold leading-none text-center transition-all" />
+    class="contact_form-submit rounded-lg bg-gray-200 shadow-gray-400 shadow-sm text-eerieBlack hover:bg-utOrange hover:text-white active:scale-x-95 duration-300 px-1 py-[2px] font-display text-base md:text-md xl:text-lg font-bold leading-none text-center transition-all" />
 </template>
