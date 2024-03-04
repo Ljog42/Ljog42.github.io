@@ -1,7 +1,7 @@
 <script setup>
 import SectionHeading from "../shared/SectionHeading.vue"
-import CVurl from "../../../public/CV_Louis_Coutel.pdf"
 import AboutPara from "./AboutPara.vue";
+import ResumeLink from "./ResumeLink.vue";
 </script>
 
 <template>
@@ -21,7 +21,6 @@ import AboutPara from "./AboutPara.vue";
       création de <b>La Loupe</b>, le podcast quotidien de L'Express.
     </AboutPara>
 
-    <a class="about-a lg:text-xl xl:text-2xl text-base underline transition-all w-fit font-medium hover:text-utOrange duration-100"
-      :href="CVurl" target="_blank">MonCV.pdf</a>
+    <ResumeLink />
   </section>
 </template>

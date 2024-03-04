@@ -5,9 +5,9 @@ import FooterSection from '../components/FooterSection.vue'
 </script>
 
 <template>
-    <HeaderSection />
+        <HeaderSection />
 
-    <MainView />
+        <MainView />
 
-    <FooterSection />
+        <FooterSection />
 </template>

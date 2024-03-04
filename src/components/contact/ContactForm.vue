@@ -4,9 +4,9 @@ import SendButton from "./SendButton.vue";
 </script>
 
 <template>
-    <form class="contact_form flex flex-col w-full h-full gap-2 lg:gap-4" action="https://formspree.io/f/mvonkgag"
+    <form class="contact_form flex flex-col w-full h-full gap-2 2xl:gap-3" action="https://formspree.io/f/mvonkgag"
         method="POST">
-        <section class="poster-info flex flex-col sm:flex-row gap-2 lg:gap-4 w-full">
+        <section class="poster-info flex flex-col sm:flex-row gap-2 xl:gap-3 w-full">
             <FormField :labelName="'Nom'" />
 
             <FormField :labelName="'Email'" />

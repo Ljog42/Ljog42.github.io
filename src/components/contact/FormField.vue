@@ -8,8 +8,8 @@ const labelName = props.labelName;
 
 <template>
   <div
-    class="form-element flex flex-row w-full font-display h-6 lg:h-8 items-center leading-none whitespace-nowrap gap-1">
-    <label :for="labelName" class="w-fit lg:w-20 h-fit text-lg lg:text-2xl font-medium lg:pr-1">
+    class="form-element flex flex-row w-full font-display h-6 2xl:h-8 items-center leading-none whitespace-nowrap gap-1">
+    <label :for="labelName" class="w-fit lg:w-20 h-fit text-base md:text-lg lg:text-xl xl:text-2xl font-medium xl:pr-1">
       {{ labelName }}:</label>
 
     <input type="text" :id="labelName"

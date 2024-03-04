@@ -12,7 +12,7 @@ const linkedin = {
 };
 </script>
 <template>
-    <section class="socials-section flex flex-row grow w-fit gap-1 lg:gap-2 justify-end items-end">
+    <section class="socials-section flex flex-row grow w-fit gap-1 xl:gap-2 2xl:gap-3 justify-end items-end">
         <SocialIcon :faClass="linkedin.class" :link="linkedin.link" />
 
         <SocialIcon :faClass="github.class" :link="github.link" />
