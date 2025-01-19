@@ -3,6 +3,7 @@ import "./App.css";
 import { Category } from "./types";
 import CategoryList from "./components/Category";
 import Header from "./components/Header";
+import Carousel from "./components/Carousel";
 
 function App() {
 	const [categories, setCategories] = useState<Array<Category> | null>();
@@ -28,6 +29,7 @@ function App() {
 			<>
 				<Header />
 				<main className="font-nm text-white bg-offblack">
+					<Carousel />
 					<CategoryList category={popular} />
 					<ul>{others}</ul>
 				</main>

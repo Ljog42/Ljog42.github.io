@@ -14,3 +14,11 @@ export interface Category {
 	order: number;
 	missions: Array<Mission>;
 }
+
+export interface Banner {
+	id:string;
+	image: string;
+	redirect: string;
+	created: string;
+	modified: string;
+}
