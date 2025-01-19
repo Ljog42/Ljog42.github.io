@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { Category } from "./types";
 import CategoryList from "./components/Category";
+import Header from "./components/Header";
 
 function App() {
 	const [categories, setCategories] = useState<Array<Category> | null>();
@@ -24,10 +25,13 @@ function App() {
 		});
 
 		return (
+			<>
+				<Header />
 				<main className="font-nm text-white bg-offblack">
 					<CategoryList category={popular} />
 					<ul>{others}</ul>
 				</main>
+			</>
 		);
 	}
 }
