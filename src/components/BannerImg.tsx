@@ -18,8 +18,10 @@ export default function BannerImg({
 	return (
 		<img
 			ref={elementRef}
+			alt={`Bannière promotionelle - ${banner.id}`}
 			src={banner.image}
 			className={"shrink-0 snap-start aspect-banner"}
+			loading="lazy"
 		/>
 	);
 }

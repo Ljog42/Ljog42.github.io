@@ -11,6 +11,7 @@ export default function Card({ mission }: { mission: Mission }) {
 					className="aspect-reel rounded-md border-white border-[1px] "
 					src={mission.image}
 					alt={`Illustration de contenu - ${mission.title}`}
+					loading="lazy"
 				/>
 			</a>
 		</article>
