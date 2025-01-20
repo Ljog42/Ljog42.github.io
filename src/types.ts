@@ -16,9 +16,14 @@ export interface Category {
 }
 
 export interface Banner {
-	id:string;
+	id: string;
 	image: string;
 	redirect: string;
 	created: string;
 	modified: string;
+}
+export interface Filter {
+	catId: number;
+	catTitle: string;
+	active: boolean;
 }

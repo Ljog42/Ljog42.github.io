@@ -1,12 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./src/**/*.{html,js,jsx,tsx}"],
+	safelist: ["roundex-cxs"],
 	theme: {
 		extend: {
 			colors: {
 				offblack: "#191308",
 				lavender: "#F4EBFF",
 				pink: "#DFC7FF",
+				purple: "#9747FF",
+			},
+			borderRadius: {
+				cxs: "0.2rem",
+			},
+			outline: {
 				purple: "#9747FF",
 			},
 			backgroundImage: {
