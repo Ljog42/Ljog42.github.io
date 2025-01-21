@@ -1,23 +1,8 @@
-import { useRef } from "react";
-import { Banner } from "../types";
+import type { Banner } from "../types.ts";
 
-export default function BannerImg({
-	banner,
-	active,
-}: { banner: Banner; active: boolean }) {
-	const elementRef = useRef<HTMLImageElement | null>(null);
-
-	if (elementRef && active) {
-		elementRef.current?.scrollIntoView({
-			block: "nearest",
-			inline: "nearest",
-			behavior: "smooth",
-		});
-	}
-
+export function BannerImg({ banner }: { banner: Banner }) {
 	return (
 		<img
-			ref={elementRef}
 			alt={`Bannière promotionelle - ${banner.id}`}
 			src={banner.image}
 			className={"shrink-0 snap-start aspect-banner"}

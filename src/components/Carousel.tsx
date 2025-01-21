@@ -1,14 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import { Banner } from "../types";
-import BannerImg from "./BannerImg";
-import { checkIsVisible } from "../utils/utils";
+import type { Banner } from "../types.ts";
+import { BannerImg } from "./BannerImg.tsx";
 
-export default function Carousel() {
-	const [banners, setBanners] = useState<Array<Banner> | null>(null);
-	const [activeBanner, setActiveBanner] = useState<number | null>(null);
-	const [isVisible, setIsVisible] = useState(false);
-	const scrolling = useRef<boolean>(false);
-	const elementRef = useRef<HTMLUListElement | null>(null);
+export function Carousel() {
+	const [banners, setBanners] = useState<Banner[] | null>();
+	const hovered = useRef<boolean>(false);
+	const containerRef = useRef<HTMLUListElement | null>(null);
+	const activeBanner = useRef<number>(0);
+
+	const handleHover = () => {
+		hovered.current = true;
+	};
+
+	const handleLeave = () => {
+		hovered.current = false;
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -23,58 +29,41 @@ export default function Carousel() {
 		fetchData();
 
 		const interval = setInterval(() => {
-			if (elementRef.current) {
-				const rect = elementRef.current?.getBoundingClientRect();
-
-				if (checkIsVisible(rect) && !scrolling.current) {
-					setIsVisible(true);
-				}
-
-				if (!scrolling.current && banners) {
-					const active =
-						activeBanner < banners.length - 1 ? activeBanner + 1 : 0;
-
-					setActiveBanner(active);
-				}
+			if (containerRef.current && !hovered.current) {
+				containerRef.current.scrollTo({
+					left:
+						containerRef.current.getBoundingClientRect().width *
+						activeBanner.current,
+					top: containerRef.current.scrollTop,
+					behavior: "smooth",
+				});
+				activeBanner.current =
+					activeBanner.current < 2 ? activeBanner.current + 1 : 0;
 			}
 		}, 5000);
 
 		return () => {
 			clearInterval(interval);
 		};
-	}, [scrolling, activeBanner, isVisible, elementRef]);
+	}, []);
 
-	const handleScroll = () => {
-		if (!scrolling.current) {
-			scrolling.current = !scrolling.current;
+	const bannerItems = banners
+		? banners.map((banner) => {
+				return <BannerImg key={banner.id} banner={banner} />;
+			})
+		: null;
 
-			setTimeout(() => {
-				scrolling.current = false;
-			}, 1000);
-		}
-	};
-
-	if (banners) {
-		const bannerItems = banners.map((banner, index) => {
-			return (
-				<BannerImg
-					key={banner.id}
-					banner={banner}
-					active={activeBanner == index}
-				/>
-			);
-		});
-
-		return (
-			<ul
-				ref={elementRef}
-				onScroll={handleScroll}
-				className={
-					"aspect-banner flex snap-x snap-mandatory w-full max-w-7xl m-auto 2xl:rounded-md overflow-y-scroll"
-				}
-			>
-				{bannerItems}
-			</ul>
-		);
-	}
+	return (
+		<ul
+			onMouseOver={handleHover}
+			onFocus={handleHover}
+			onMouseLeave={handleLeave}
+			className={
+				"no-scrollbar relative aspect-banner flex snap-x snap-mandatory w-full max-w-7xl m-auto 2xl:rounded-md overflow-x-scroll overflow-y-hidden [&::scrollbar]:w2 "
+			}
+			ref={containerRef}
+		>
+			{bannerItems}
+		</ul>
+	);
 }

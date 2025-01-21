@@ -37,3 +37,8 @@
   font-style: normal;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-track-color: transparent;
+  scrollbar-face-color: gray transparent;
+}
