@@ -16,7 +16,7 @@ export function Filters({
 	return (
 		<section className="w-full 2xl:max-w-7xl m-auto h-fit px-6 py-4 xl:px-10 xl:py-6 2xl:px-0">
 			<Heading2 text={"Filtrez par catégorie"} />
-			<div className="flex flex-wrap gap-2 max-w-full h-fit">
+			<div className="flex flex-wrap gap-2 xl:gap-3 max-w-full h-fit">
 				{filterButtons}
 			</div>
 		</section>

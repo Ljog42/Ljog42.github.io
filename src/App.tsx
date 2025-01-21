@@ -1,4 +1,3 @@
-import "overlayscrollbars/overlayscrollbars.css";
 import type { ChangeEvent } from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
@@ -7,7 +6,6 @@ import { CategoryList } from "./components/Category.tsx";
 import { Header } from "./components/Header.tsx";
 import { Carousel } from "./components/Carousel.tsx";
 import { Filters } from "./components/Filters.tsx";
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
 export function App() {
 	const [categories, setCategories] = useState<Category[] | null>(null);

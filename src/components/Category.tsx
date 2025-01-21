@@ -11,7 +11,7 @@ export function CategoryList({ category }: { category: Category }) {
 	return (
 		<section className="transition-all w-full 2xl:max-w-7xl m-auto h-fit px-6 py-4 xl:px-10 xl:py-6 overflow-hidden 2xl:px-0">
 			<Heading2 text={category.title} />
-			<ul className="flex w-full h-min gap-3 xl:gap-5 bg-darkpurple no-scrollbar">
+			<ul className="flex w-full h-min gap-1 lg:gap-3 bg-darkpurple no-scrollbar overflow-x-scroll lg:overflow-x-hidden">
 				{cards}
 			</ul>
 		</section>
