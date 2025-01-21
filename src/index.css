@@ -37,8 +37,6 @@
   font-style: normal;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-track-color: transparent;
-  scrollbar-face-color: gray transparent;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

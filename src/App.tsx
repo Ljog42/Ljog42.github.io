@@ -1,14 +1,17 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import "overlayscrollbars/overlayscrollbars.css";
+import type { ChangeEvent } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
-import { Category, Filter } from "./types";
-import CategoryList from "./components/Category";
-import Header from "./components/Header";
-import Carousel from "./components/Carousel";
-import Filters from "./components/Filters";
+import type { Category, Filter } from "./types.ts";
+import { CategoryList } from "./components/Category.tsx";
+import { Header } from "./components/Header.tsx";
+import { Carousel } from "./components/Carousel.tsx";
+import { Filters } from "./components/Filters.tsx";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 
-function App() {
-	const [categories, setCategories] = useState<Array<Category> | null>(null);
-	const [filters, setFilters] = useState<Array<Filter> | null>(null);
+export function App() {
+	const [categories, setCategories] = useState<Category[] | null>(null);
+	const [filters, setFilters] = useState<Filter[] | null>(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -38,9 +41,9 @@ function App() {
 
 	if (categories && filters) {
 		const handleFilterClick = (event: ChangeEvent<HTMLInputElement>) => {
-			const cat_id = Number(event.target.value);
+			const catId = Number(event.target.value);
 			const newFilters = filters.map((filter) => {
-				if (cat_id == filter.catId) {
+				if (catId === filter.catId) {
 					filter.active = event.target.checked;
 				}
 
@@ -51,14 +54,14 @@ function App() {
 		};
 
 		const noFilters = (() => {
-			return filters.find((f) => f.active) == undefined;
+			return filters.find((f) => f.active) === undefined;
 		})();
 
 		const catItems = (() => {
 			const toRender = noFilters
 				? categories
 				: categories.filter((cat) => {
-						return filters.find((f) => f.catId == cat.id && f.active);
+						return filters.find((f) => f.catId === cat.id && f.active);
 					});
 
 			return toRender.map((cat) => {
@@ -79,5 +82,3 @@ function App() {
 		);
 	}
 }
-
-export default App;

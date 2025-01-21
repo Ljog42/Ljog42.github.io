@@ -12,7 +12,7 @@ export interface Category {
 	short_title: string;
 	is_landing: boolean;
 	order: number;
-	missions: Array<Mission>;
+	missions: Mission[];
 }
 
 export interface Banner {

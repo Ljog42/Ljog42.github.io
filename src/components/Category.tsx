@@ -1,16 +1,17 @@
-import { Category } from "../types";
-import Card from "./Card";
-import Heading2 from "./shared/Heading2";
+import type { Category, Mission } from "../types.ts";
+import { Card } from "./Card.tsx";
+import { Heading2 } from "./shared/Heading2.tsx";
 
-export default function CategoryList({ category }: { category: Category }) {
-	const cards = category.missions.map((mission) => {
+export function CategoryList({ category }: { category: Category }) {
+	const maxMissions: Mission[] = category.missions.slice(0, 5);
+	const cards = maxMissions.map((mission) => {
 		return <Card key={mission.id} mission={mission} />;
 	});
 
 	return (
-		<section className="w-full max-w-7xl m-auto h-fit px-6 py-4 xl:px-10 xl:py-6 overflow-y-clip">
+		<section className="transition-all w-full 2xl:max-w-7xl m-auto h-fit px-6 py-4 xl:px-10 xl:py-6 overflow-hidden 2xl:px-0">
 			<Heading2 text={category.title} />
-			<ul className="flex gap-3 xl:gap-5 bg-darkpurple overflow-y-scroll snap-x snap-mandatory">
+			<ul className="flex w-full h-min gap-3 xl:gap-5 bg-darkpurple no-scrollbar">
 				{cards}
 			</ul>
 		</section>

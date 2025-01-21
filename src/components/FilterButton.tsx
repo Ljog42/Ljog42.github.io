@@ -1,7 +1,7 @@
-import { ChangeEventHandler } from "react";
-import { Filter } from "../types";
+import type { ChangeEventHandler } from "react";
+import type { Filter } from "../types.ts";
 
-export default function FilterButton({
+export function FilterButton({
 	filter,
 	onClick,
 }: {
@@ -12,12 +12,12 @@ export default function FilterButton({
 		<label
 			htmlFor={filter.catTitle}
 			className={
-				"leading-tight has-[:checked]:text-white has-[:checked]:font-medium has-[:checked]:bg-purple transition-colors duration-150 bg-lavender hover:has-[:checked]:bg-pink hover:has-[:checked]:text-offblack hover:bg-pink focus:outline focus:outline-purple text-sm xl:text-base text-offblack px-3 py-2 w-fit cursor-pointer rounded-cxs"
+				"leading-tight has-[:checked]:text-white has-[:checked]:font-medium has-[:checked]:bg-purple transition-transform duration-300 ease-out bg-lavender hover:has-[:checked]:bg-pink hover:has-[:checked]:text-offblack hover:bg-pink hover:-translate-y-0.5 focus:outline focus:outline-purple text-sm xl:text-base 2xl:text-lg text-offblack px-3 py-2 w-fit cursor-pointer rounded-cxs font-medium"
 			}
 		>
 			<input
 				checked={filter.active}
-				hidden
+				hidden={true}
 				name={filter.catTitle}
 				type="checkbox"
 				onChange={onClick}
